@@ -1,0 +1,36 @@
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+ 
+    background-color: #94C9A9;
+    padding: 1.5rem 5rem;
+
+}
+.nav-text{
+    align-items: center;
+    width: 100vw;
+}
+
+.nav-menu {
+    
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    align-items: end;
+   
+    display: flex;
+    
+}
+
+.nav-item {
+    margin-left: 1rem;
+    
+}
+
+.nav-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+    transition: color 0;}
