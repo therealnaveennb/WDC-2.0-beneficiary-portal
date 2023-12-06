@@ -1,16 +1,21 @@
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    
- 
+    display: grid;
+    grid-template-columns: auto auto auto;
     background-color: #94C9A9;
-    padding: 1.5rem 5rem;
+    padding: 1rem 1rem;
 
 }
 .nav-text{
-    align-items: center;
-    width: 100vw;
+   font-size: x-large;
+   
+   
+}
+.nav-logo{
+    margin-left: 2rem;
+}
+.nav-firstRow{
+    display:grid;
+    grid-template-columns: auto auto;
 }
 
 .nav-menu {
@@ -19,14 +24,14 @@
     margin: 0;
     padding: 0;
     align-items: end;
-   
     display: flex;
-    
+    justify-content: space-between;
 }
 
 .nav-item {
     margin-left: 1rem;
-    
+   border-right: 1px solid black ;
+   padding-right: 1rem;
 }
 
 .nav-link {

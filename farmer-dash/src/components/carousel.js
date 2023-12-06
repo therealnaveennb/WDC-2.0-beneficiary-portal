@@ -9,7 +9,9 @@ import image3 from '../assets/image3.jpg';
 const ImageCarousel = () => {
   return (
     <Carousel showArrows={true}>
+     
       <div>
+        <img src={image1} alt="Image 1" />
         <p className="legend">Caption 1</p>
       </div>
       <div>
