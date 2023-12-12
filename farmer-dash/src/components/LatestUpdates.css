@@ -1,0 +1,58 @@
+.container{
+  background-color:white;
+  margin: 5rem;
+  padding: 0rem 1rem 0rem 1rem;
+  width:20rem;
+  height: 32rem;
+  border: 1px solid #EEE7DA;
+  border-radius: 1rem;
+  box-shadow: 10px 5px 5px #F3EEEA;
+  text-align: center;
+}
+
+.latest-updates-container {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+    
+    margin: auto auto;
+  }
+  
+  .update-item {
+    display: flex;
+    margin-bottom: 20px;
+    transition: padding 1s;
+  }
+  
+  .date-column {
+    flex: 1;
+    padding: 0.5rem;
+    background-color: #EEE7DA;
+  }
+  
+  .date {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .month {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .description-column {
+    flex: 6;
+    padding: 0.5rem;
+    background-color: #F2F1EB;
+  }
+  
+  .description {
+    font-size: 16px;
+  }
+  
+  .update-item:hover {
+    padding: 1rem;
+    background-color: #F2F1EB;
+    
+  
+  }

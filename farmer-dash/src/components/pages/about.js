@@ -1,10 +1,13 @@
 import React from "react";
 import Mainlayout from "../layout/Mainlayout.js";
+import './about.css';
+import LatestUpdates from "../LatestUpdates.js";
 function about() {
   return (
-    <div>
-      <Mainlayout />
-      <div>about</div>
+    <div className="HomePage">
+      <Mainlayout/>
+   
+      
     </div>
   );
 }

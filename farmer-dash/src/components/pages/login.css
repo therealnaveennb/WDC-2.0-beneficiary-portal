@@ -1,0 +1,70 @@
+.page-header {
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-image: url('https://wallpapers.com/images/featured/sustainable-agriculture-t1tte6fs05hrpkyc.jpg') center/cover no-repeat fixed; /* Add your background image path */
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: rgba(255, 253, 253, 0.963); /* Add transparency to the background color */
+  }
+
+  .emblem {
+    position: absolute;
+    top: 25px;
+    left: 10px;
+    color: white;
+    font-size: 4px;
+  }
+  
+  .login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: url('https://wallpapers.com/images/featured/sustainable-agriculture-t1tte6fs05hrpkyc.jpg') center/cover no-repeat fixed; /* Add your background image path */
+    background-color: rgba(255, 255, 255, 0.992); /* Add transparency to the background color within the container */
+  }
+  
+  .login-form {
+    width: 300px;
+    padding: 20px;
+    border: 0px solid #515050;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(248, 245, 245, 0.1);
+    background-color: rgba(55, 51, 51, 0.9); /* Add transparency to the background color inside the form */
+    color: white;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: rgb(246, 241, 241);
+    font-size: 18px; 
+    
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 20px;
+    border: 2px solid #21282d; /* Add a light border */
+  border-radius: 75px;
+  box-sizing: border-box;
+  font-size: 14px; 
+  
+  }
+  
+  button {
+    background-color: #0982fa;
+    color: #0c0303;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #0254f7;
+  }
+ 

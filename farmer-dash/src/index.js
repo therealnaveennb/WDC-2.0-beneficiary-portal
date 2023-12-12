@@ -2,8 +2,9 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
+
 import {
-  BrowserRouter as Router,
+  HashRouter as Router,
   Routes,
   Route,
   RouterProvider,
@@ -11,15 +12,21 @@ import {
 } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import About from "./components/pages/about";
+import Login from "./components/pages/login";
+import Home from "./components/pages/Home";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />,
+    element: <Home/>,
   },
   {
     path: "about",
     element: <About />,
+  },
+  {
+    path: "login",
+    element: <Login />,
   },
 ]);
 const root = ReactDOM.createRoot(document.getElementById("root"));
