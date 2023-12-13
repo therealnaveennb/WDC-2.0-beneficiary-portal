@@ -9,6 +9,7 @@ import { FaFileAlt } from "react-icons/fa";
 import { FaVideo } from "react-icons/fa";
 import { MdOutlineLogin } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
+import { TbReport } from "react-icons/tb";
 
 const Navbar = () => {
   const [fix, setFix] = useState(false);
@@ -62,7 +63,7 @@ const Navbar = () => {
         </div>
         <div className="nav-item">
           <Link to="/Contact Us" className="nav-link">
-            Contact Us
+          <TbReport/> Report
           </Link>
         </div>
         <div className="nav-item">
@@ -77,7 +78,7 @@ const Navbar = () => {
         </div>
         <div className="nav-item">
           <Link to="/register" className="nav-link">
-            {CgProfile} Register
+            {CgProfile} Contact Us
           </Link>
         </div>
       </div>

@@ -1,0 +1,108 @@
+/* AboutUsPage.css */
+.about-us-page {
+    font-family: 'Montserrat', sans-serif;
+    color: #000000;
+    background-color:rgb(252, 252, 252);
+    /* Add more global styles as needed */
+  }
+  
+.header {
+    background-color: rgb(252, 252, 252);
+    color: #000000;
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .header h1 {
+    font-size: 2em;
+  }
+ 
+  
+  .header p {
+    font-size: 1.2em;
+  }
+  
+  .main-content {
+    padding: 20px;
+  }
+  .jumbotron {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .jumbotron img {
+    width: 40%; /* Adjust the width as per your layout */
+    height: auto;
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .circles-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .circles-container img {
+    width: 100px;
+    height: 100px;
+    /* Add margin or padding as needed */
+  }
+  
+  .story-container {
+    text-align: center;
+  }
+  
+  .need-for-dx-container h2 {
+    color:#fff;
+    font-size: 1.6em;
+    background-color: #5993ba;
+  }
+  
+  .need-for-dx-container p {
+    font-size: 0.8em;
+    margin-top: 10px;
+    text-align:left;
+    
+  }
+  .need-for-dx-container li {
+    font-size: 0.8em;
+    margin-top: 10px;
+    text-align:left;
+    
+  }
+.img-1,
+.img-2,
+.img-3 {
+  display: inline-block;
+  width: 30%; /* Adjust the width as per your layout */
+  text-align: center; /* Center the images */
+  vertical-align: top; /* Align the images to the top */
+  margin: 0 1%; /* Add some margin between the images */
+  box-sizing: border-box; /* Include padding and border in the element's total width and height */
+}
+
+.img-1 img,
+.img-2 img,
+.img-3 img {
+  width: 100%; /* Make the images fill their containers */
+  height: auto; /* Maintain the aspect ratio */
+  display: block; /* Remove extra space below the images */
+}
+@keyframes highlight {
+    0% {
+      background-color: #6763a5;
+      color: #333;
+    }
+    100% {
+      background-color: transparent;
+      color: inherit;
+    }
+  }
+  
+  /* Add styles for highlighted sections */
+  .highlight {
+    animation: highlight 1s ease-in-out;
+  }

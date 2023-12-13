@@ -14,7 +14,7 @@
   display: grid;
   grid-template-columns: auto auto;
   justify-content: flex-start;
-  background-color: #F3F8FF;
+  background-color: #E5E4CC;
   padding: 2rem;
 }
 
@@ -36,7 +36,7 @@
   flex-direction: row;
   margin: 0;
   width: 100%;
-  background-color: #7E30E1;
+  background-color: #889E81;
 
   list-style-type: none;
   height: fit-content;
@@ -49,7 +49,7 @@
   flex-direction: row;
   margin: 0;
   width: 100%;
-  background-color: #49108B;
+  background-color: #698474;
   
   
   list-style-type: none;

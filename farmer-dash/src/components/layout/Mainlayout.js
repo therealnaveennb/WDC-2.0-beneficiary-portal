@@ -6,6 +6,7 @@ function Mainlayout({children}) {
     <div>
       <Navbar/>
       <div>{children}</div>
+      
     </div>
   );
 }
