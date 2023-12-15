@@ -5,13 +5,14 @@ import LatestUpdates from "../LatestUpdates.js";
 import Footer from "../footer.js";
 const About = () => {
   return (
-    <div>
+    <div className="about-page">
       <Mainlayout />
+   
       <div className="about-us-page">
         <section className="main-content">
           <div className="header">
             <h1>Water Harvesting System</h1>
-            <p>PMSKY WDS 2.0 WHSs</p>
+            <h1>PMSKY WDS 2.0 WHSs</h1>
           </div>
           <div className="jumbotron">
             <div className="img-1">
@@ -101,7 +102,7 @@ const About = () => {
           </div>
         </section>
       </div>
-      <Footer/>
+      <Footer />
     </div>
   );
 };

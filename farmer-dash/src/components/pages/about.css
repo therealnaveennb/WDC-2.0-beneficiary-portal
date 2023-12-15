@@ -1,13 +1,14 @@
 /* AboutUsPage.css */
+
 .about-us-page {
     font-family: 'Montserrat', sans-serif;
     color: #000000;
-    background-color:rgb(252, 252, 252);
+    background-color:FBF6EE;
     /* Add more global styles as needed */
   }
   
 .header {
-    background-color: rgb(252, 252, 252);
+
     color: #000000;
     text-align: center;
     padding: 20px;

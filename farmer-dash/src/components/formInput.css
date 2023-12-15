@@ -1,0 +1,60 @@
+.formInput{
+    display: flex;
+    flex-direction: column;
+    width: 280px;
+}
+
+.formInput input{
+    padding: 15px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.custom-textarea {
+    width: 250px;
+    height: 95px; 
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333;
+    resize: vertical; 
+  }
+
+.formInput label{
+    font-size: 12px;
+    color: white;
+}
+
+.formInput option{
+    font-size: 12px;
+    color: gray;
+   
+}
+
+
+.formInput span{
+    font-size: 12px;
+    padding: 3px;
+    color: red;
+    display: none;
+}
+ 
+.formInput input:invalid[focused="true"]{
+    border: 1px solid red;
+}
+
+.formInput input:invalid[focused="true"] ~ span{
+    display: block;
+}
+
+.formInput select
+{
+    padding: 15px 35px 15px 10px;
+    margin: 10px 0px;
+    border-radius: 5px;
+    width: 280px;
+    border: 1px solid gray;
+
+}
