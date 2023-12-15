@@ -1,0 +1,244 @@
+import React, { useState } from "react";
+import "./register.css";
+import { Link } from "react-router-dom";
+
+export default function SignUp() {
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
+  const [email, setEmail] = useState("");
+ 
+  const [password, setPassword] = useState("");
+  const [userType, setUserType] = useState("");
+  const [registrationStatus, setRegistrationStatus] = useState("");
+    
+ 
+  
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!userType) {
+      setRegistrationStatus("Please select a role");
+      return;
+    }
+    fetch("http://localhost:5000/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        fname,
+        lname,
+        email,
+        password,
+        userType,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === "ok") {
+          setRegistrationStatus("Registration Successful");
+        } else {
+          setRegistrationStatus("Something went wrong");
+        }
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
+  return (
+    <div className="auth-wrapper">
+      <div className="auth-inner">
+        <form onSubmit={handleSubmit}>
+          <h3 className="form-title">Sign Up</h3>
+          <div className="radio-group">
+            <label className="form-label">Register As</label>
+            <input
+              className="radio-group"
+              type="radio"
+              name="UserType"
+              value="Farmer"
+              onChange={(e) => setUserType(e.target.value)}
+            />
+            Farmer
+            <input
+              className="radio-group"
+              type="radio"
+              name="UserType"
+              value="Admin"
+              onChange={(e) => setUserType(e.target.value)}
+            />
+            Admin
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">First name</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="First name"
+              onChange={(e) => setFname(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">Last name</label>
+            <input
+              type="text"
+              className="form-control"
+              placeholder="Last name"
+              onChange={(e) => setLname(e.target.value)}
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">Email address</label>
+            <input
+              type="email"
+              className="form-control"
+              placeholder="Enter email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
+          
+  {userType == "Admin" ?null:
+          <div className="mb-3">
+            <label className="form-label">Password</label>
+            <input
+              type="password"
+              className="form-control"
+              placeholder="Enter password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            
+          </div> }
+
+          <div className="d-grid">
+            <div></div>
+            <button type="submit" className="btn btn-primary">
+              Sign Up
+            </button>
+            <div></div>
+          </div>
+          <p className="text-center">{registrationStatus}</p>
+          <p className="forgot-password text-right">
+            Already registered <Link to="/Login">sign in?</Link>
+          </p>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+
+
+
+.auth-wrapper {
+  padding: 0;
+  background-image: url('https://wallpapercave.com/wp/wp1886331.jpg');
+  font-family: Arial, sans-serif;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.auth-inner {
+  max-width: 400px;
+  width: 100%;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.8); /* Adjust the last value for transparency */
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Add a subtle box shadow */
+  
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.form-title {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #007bff;
+}
+
+.radio-group {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 15px;
+}
+
+.form-control {
+  width: 100%;
+  position: relative;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+}
+
+
+
+
+
+.form-control.focused + .form-label {
+  top: 10px;
+  font-size: 12px;
+  color: #007bff; /* Change color when focused */
+}
+
+
+.form-label {
+  font-weight: bold;
+  
+}
+
+.form-grid {
+  display: grid;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  border-radius: 4px;
+  
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.password-link {
+  margin-top: 10px;
+}
+
+.password-link a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.password-link a:hover {
+  text-decoration: underline;
+}
+.d-grid{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+ 
+ 
+ 
+  align-items: center;
+
+}
