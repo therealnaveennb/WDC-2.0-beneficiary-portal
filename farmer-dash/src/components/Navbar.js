@@ -10,6 +10,8 @@ import { FaVideo } from "react-icons/fa";
 import { MdOutlineLogin } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { TbReport } from "react-icons/tb";
+import G20 from "./assets/G20.png";
+
 
 const Navbar = () => {
   const [fix, setFix] = useState(false);
@@ -23,7 +25,7 @@ const Navbar = () => {
   }
   window.addEventListener("scroll", setFixed);
   return (
-    <div>
+    <div className="navbar">
       <div className="nav-firstRow">
         <a href="#home" className="nav-logo">
           <img src={logo} alt="logo" style={{ height: "100px" }} />
@@ -38,6 +40,7 @@ const Navbar = () => {
           Government of India (भारत सरकार)
         </h1>
         
+        <img className="nav-g20" src={ G20 } height={"150rem"}/>
       </div>
 
       <div className={fix ? "nav-menuFixed" : "nav-menu"}>
@@ -52,7 +55,7 @@ const Navbar = () => {
           </Link>
         </div>
         <div className="nav-item">
-          <Link to="/dashboard" className="nav-link">
+          <Link to="/dash" className="nav-link">
             <BiSolidDashboard /> Dashboard
           </Link>
         </div>

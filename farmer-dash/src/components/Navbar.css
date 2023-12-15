@@ -4,7 +4,7 @@
   display: grid;
   grid-template-rows: auto auto;
   
-  padding-top: 1rem;
+  padding-top: 0rem;
   margin: 0;
   height: 10rem;
   width: 100%;
@@ -12,14 +12,19 @@
 
 .nav-firstRow {
   display: grid;
-  grid-template-columns: auto auto;
-  justify-content: flex-start;
+  grid-template-columns: auto auto auto;
+  justify-content: space-between;
+  align-items: center;
   background-color: #E5E4CC;
   padding: 2rem;
 }
+.nav-g20{
+  position: relative;
+  left: 0;
+}
 
 .nav-text {
-  font-size: large;
+  font-size: 1.4rem;
   padding-left: 2rem;
   text-align: left;
 }

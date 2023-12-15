@@ -1,174 +1,108 @@
-import React, { useState, useEffect } from "react";
-import "./login.css";
+import React, {useState}from 'react';
+import { Form, Input, Checkbox, Button } from 'antd';
+import {Select} from 'antd';
+import './login.css'; // Adjust the path based on the actual location of your CSS file
+import { Link } from 'react-router-dom';
+const { Option } = Select;
 
-const AnimatedForm = () => {
-  const [isLoginFormVisible, setLoginFormVisibility] = useState(true);
-  const [userType, setUserType] = useState("");
+const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [userType, setUserType] =useState("");
+  function handleSubmit(e) {
+   
 
-  const handleUserTypeChange = (e) => {
-    setUserType(e.target.value);
-  };
+    console.log(email, password);
+    fetch("http://localhost:5000/login", {
+      method: "POST",
+      crossDomain: true,
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        "Access-Control-Allow-Origin": "*",
+      },
+      body: JSON.stringify({
+        userType,
+        email,
+        password,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data, "userRegister");
+        if (data.status == "ok") {
+          alert("login successful");
+          window.localStorage.setItem("token", data.data);
+          window.localStorage.setItem("loggedIn", true);
 
-  useEffect(() => {
-    const inputs = document.querySelectorAll("input");
-
-    const handleInputFocus = (e) => {
-      const parentElement = e.target.parentElement.parentElement;
-      parentElement.classList.add("box-animation");
-    };
-
-    const handleInputBlur = (e) => {
-      const parentElement = e.target.parentElement.parentElement;
-      parentElement.classList.remove("box-animation");
-    };
-
-    inputs.forEach((input) => {
-      input.addEventListener("focus", handleInputFocus);
-      input.addEventListener("blur", handleInputBlur);
-    });
-
-    return () => {
-      inputs.forEach((input) => {
-        input.removeEventListener("focus", handleInputFocus);
-        input.removeEventListener("blur", handleInputBlur);
+          window.location.href = "./dash";
+        }
       });
-    };
-  }, []);
-
-  const handleButtonClick = () => {
-    setLoginFormVisibility(!isLoginFormVisible);
-  };
-  
+    }
 
   return (
-    <div className="customBody">
-      <div className="main-form-container">
-        <div
-          id="form_section"
-          className={`form-container ${isLoginFormVisible ? "" : "left-right"}`}
+    <div className="login-page">
+      <div className="login-box">
+        <div className="illustration-wrapper">
+          <img src="https://img.freepik.com/premium-vector/logo-g203-india-with-lotus-flower-middle_220166-3141.jpg" alt='G20'/>
+        </div>
+        <Form
+          name="login-form"
+          initialValues={{ remember: true }}
+          onFinish={handleSubmit}
+         
         >
-          {isLoginFormVisible ? (
-            <div className={`login-form form-wraper `}>
-              <div>
-                <div className="form-title">
-                  <h2>Login</h2>
-                </div>
-                {/* <div className="">
-                  <div className="box-dropdown">
-                    <span>
-                      <select 
-                        placeholder="User Type"
-                        className="myInput"
-                        defaultValue={"customer"}
-                      >
-                        <option value="hello" >
-                          User Type
-                        </option>
-                        <option value="customer">Farmers</option>
-                        <option value="govtOfficial">Govt Officials</option>
-                        <option value="headOfficial">Head Officials</option>
-                      </select>
-                    </span>
-                  </div>
-                </div> */}
-                <div className="input-group">
-                  <div className="box">
-                    <span>
-                      <input
-                        placeholder="Email"
-                        className="myInput"
-                        type="text"
-                      />
-                    </span>
-                  </div>
-                </div>
-                <div className="input-group">
-                  <div className="box">
-                    <span>
-                      <input
-                        placeholder="Password"
-                        className="myInput"
-                        type="password"
-                      />
-                    </span>
-                  </div>
-                </div>
-                <div className="forget-password">
-                  <a href="">Forget-password</a>
-                </div>
-                <div className="action-button">
-                  <button>Login</button>
-                </div>
-              </div>
-            </div>
-          ) : (
-            <div className={`signUp-form form-wraper`}>
-              <div>
-                <div className="form-title">
-                  <h2>Sign Up</h2>
-                </div>
-                <div className="input-group">
-                  <div className="box">
-                    <span>
-                      <input
-                        placeholder="Full Name"
-                        className="myInput"
-                        type="text"
-                      />
-                    </span>
-                  </div>
-                </div>
-                <div className="input-group">
-                  <div className="box">
-                    <span>
-                      <input
-                        placeholder="Email"
-                        className="myInput"
-                        type="text"
-                      />
-                    </span>
-                  </div>
-                </div>
-                <div className="input-group">
-                  <div className="box">
-                    <span>
-                      <input
-                        placeholder="Mobile No."
-                        className="myInput"
-                        type="number"
-                      />
-                    </span>
-                  </div>
-                </div>
-                <div style={{ marginBottom: "0px" }} className="input-group">
-                  <div className="box">
-                    <span>
-                      <input
-                        placeholder="Password"
-                        className="myInput"
-                        type="password"
-                      />
-                    </span>
-                  </div>
-                </div>
-                <div className="action-button">
-                  <button>Sign Up</button>
-                </div>
-              </div>
-            </div>
-          )}
-        </div>
-        <div id="multiple-btn" className="bg-btn-container">
-          <div className="action-button">
-            <button onClick={handleButtonClick}>Login</button>
-          </div>
-          <div className="action-button">
-            <button onClick={handleButtonClick}>Sign Up</button>
-          </div>
-        </div>
+          <p className="form-title">Welcome Back</p>
+          <p>Login to the Dashboard</p>
+
+          <Form.Item
+            name="role"
+            rules={[{ required: true, message: 'Please select a role!' }]}
+          >
+            <Select placeholder="Select a role"
+           
+            onChange={(e) => setUserType(e.value)}
+           >
+            <Option  value="Farmer">Farmer</Option>
+              <Option value="admin">Admin</Option>
+              <Option value="user">Head Officials</Option>
+            </Select>
+          </Form.Item>
+
+          <Form.Item
+            name="username"
+            rules={[{ required: true, message: 'Please input your Phone number' }]}
+          >
+            <Input placeholder="E Mail" 
+             onChange={(e) => setEmail(e.target.value)}/>
+          </Form.Item>
+
+          <Form.Item
+            name="password"
+            rules={[{ required: true, message: 'Please input your password!' }]}
+
+          >
+            <Input.Password placeholder="Password" 
+             onChange={(e) => setPassword(e.target.value)}/>
+          </Form.Item>
+
+          <Form.Item name="remember" valuePropName="checked">
+            <Checkbox>Remember me</Checkbox>
+          </Form.Item>
+         
+          <Form.Item>
+            <Button type="primary" htmlType="submit" className="login-form-button">
+              LOGIN
+            </Button>
+          </Form.Item>
+          <Form.Item name="register" valuePropName="checked">
+            <Link to="/register">Register Here</Link>
+          </Form.Item>
+         
+        </Form>
       </div>
     </div>
   );
 };
 
-export default AnimatedForm;
+export default Login;
